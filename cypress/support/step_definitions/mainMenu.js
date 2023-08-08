@@ -2,7 +2,6 @@ import { Given, When, And, Then } from "@badeball/cypress-cucumber-preprocessor"
 import mainMenu from "../../e2e/pages/mainMenu";
 
 Given("User loading the page, select Yes from allow browser location", ()=>{
-    
     mainMenu.visit();
     
 });

@@ -72,11 +72,8 @@ class MainMenu {
     navCartPage(){
       cy.wait(3000);
       // cy.get(buttonCart).click();
-
       cy.get(buttonCart).should('be.visible')
       cy.get(buttonCart, { timeout: 10000 }).eq(0).click({ force: true })
-
-
       cy.wait(3000);
       cy.get(countCart).contains('2');
 
