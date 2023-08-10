@@ -30,7 +30,6 @@ module.exports = defineConfig({
       await addCucumberPreprocessorPlugin(on, config);
       allureWriter(on, config);
       config = cypressBrowserPermissionsPlugin(on, config)
-      
       return config;
     },
     specPattern: "cypress/e2e/features/*.feature",

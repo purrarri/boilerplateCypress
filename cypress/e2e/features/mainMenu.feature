@@ -1,18 +1,15 @@
-Feature: Wetwo commerce page
+Feature: Perform login as in Saucedemo
 
     As a user perform action generate an cart 
 
-    Background: navigate to Wetwo page
+    Background: navigate to Saucedemo login session
     
-
-    Scenario: Perform navigate to Wetwo commerce page
-        Given User loading the page, select Yes from allow browser location
-        And Select one of the listed location
-        Then Will return the following list of location
-        When User select one of the product to tambah Keranjang
-        Then Return modal dialogue indicate cart quantity 1
-        When User procced to add more quantity, select cart
-        Then Navigate to cart page
-        When User select min cart quntity by 1
-        Then Validate return product quantity      
+    @logintest
+    Scenario Outline: Perform navigate to Saucedemo commerce page
+        Given User navigate to following page
+        When User input the following credential
+            |   username        |   password        |
+            |   standard_user   |   secret_sauce    |
+        And Select button Submit
+        Then Return the following result indicate the login result
    

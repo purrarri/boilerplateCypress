@@ -1,47 +1,41 @@
 import { Given, When, And, Then } from "@badeball/cypress-cucumber-preprocessor";
 import mainMenu from "../../e2e/pages/mainMenu";
 
-Given("User loading the page, select Yes from allow browser location", ()=>{
+Given("testing", ()=>{
     mainMenu.visit();
+    mainMenu.locationPick();
+    mainMenu.navigateLocation();
+    mainMenu.selectProduct();
+    mainMenu.addQuantity();
+    mainMenu.moreQuantity();
+    mainMenu.navCartPage();
+    mainMenu.minQuantity();
+    mainMenu.countQuantity();
+    
     
 });
 
-And("Select one of the listed location", ()=>{
-    mainMenu.locationPick();
+Given("User navigate to following page", ()=>{
+    mainMenu.navigateMain();
 });
 
-Then("Will return the following list of location", ()=>{
-    mainMenu.navigateLocation();
+When("User input the following credential", (datatable)=>{
+    mainMenu.navigateInput();
+    datatable.hashes().forEach((element) => {
+        cy.get('#user-name').type(element.username);
+        cy.get('#password').type(element.password);
+    })
 });
 
-When("User select one of the product to tambah Keranjang", ()=>{ 
-    mainMenu.selectProduct();
-});
+And("Select button Submit", ()=>{
+    mainMenu.submitForm();
+})
 
-// And("User procced to add note", ()=>{
-//     mainMenu.test();
-// });  
-
-Then("Return modal dialogue indicate cart quantity 1", ()=>{
-    mainMenu.addQuantity();
-});
-
-When("User procced to add more quantity, select cart", ()=>{
-    mainMenu.moreQuantity();
-});
+Then("Return the following result indicate the login result", ()=>{
+    mainMenu.validateLogin();
+})
 
 
-Then("Navigate to cart page", ()=>{
-    mainMenu.navCartPage();
-});
-
-Then("User select min cart quntity by 1", ()=>{
-    mainMenu.minQuantity();
-});
-
-Then("Validate return product quantity", ()=>{
-    mainMenu.countQuantity();
-});
 
 
 

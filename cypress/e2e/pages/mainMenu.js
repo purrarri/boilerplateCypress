@@ -30,9 +30,9 @@ class MainMenu {
         // });
 
         cy.window().then(win => {
-          cy.visitWithCustomGeoLoc(win, "/", 16.1774, 106.7907);
+          // cy.c(win, "/", 16.1774, 106.7907);
+            cy.visit('/', {headers: {}});
         })
-          
     }
     
 
@@ -76,9 +76,6 @@ class MainMenu {
       cy.get(buttonCart, { timeout: 10000 }).eq(0).click({ force: true })
       cy.wait(3000);
       cy.get(countCart).contains('2');
-
-      
-
     }
 
     minQuantity(){
@@ -89,6 +86,30 @@ class MainMenu {
       cy.get(countCart).contains('1');
       cy.log('Return total cart 1');
 
+    }
+
+    navigateMain(){
+      // cy.window().then(win => {
+      //   cy.visitWithCustomGeoLoc(win, "/", 16.1774, 106.7907);
+      // })
+      cy.visit('/', {headers: {}});
+    }
+
+    navigateInput(){
+      cy.get('body > :nth-child(1)').should('exist');
+      cy.get('#user-name').should('exist');
+      cy.get('#password').should('exist');
+      cy.get('#login-button').should('exist');
+      }
+    
+
+    submitForm(){
+      cy.get('#login-button').click();
+
+    }
+
+    validateLogin(){
+      cy.log('validate log state')
     }
 
 }
