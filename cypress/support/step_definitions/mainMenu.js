@@ -11,8 +11,6 @@ Given("testing", ()=>{
     mainMenu.navCartPage();
     mainMenu.minQuantity();
     mainMenu.countQuantity();
-    
-    
 });
 
 Given("User navigate to following page", ()=>{

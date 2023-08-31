@@ -38,8 +38,7 @@ class MainMenu {
 
     locationPick() {
       cy.get(headerExist).should('exist');
-      cy.wait(10000);
-      
+      cy.wait(10000);      
     }
 
     navigateLocation(){
@@ -47,7 +46,6 @@ class MainMenu {
       cy.wait(3000);
       // cy.get('.css-pm2bee > .css-17pxf9o > .css-nwvtde').should('have.attr', 'class');
       // cy.get('.css-pm2bee > .css-17pxf9o > .css-nwvtde').should('exist');
-
     }
 
     selectProduct(){
@@ -60,7 +58,6 @@ class MainMenu {
     addQuantity(){
       cy.get(buttonAdd).contains('1');
       cy.wait(3000);
-      
     }
 
     moreQuantity(){
@@ -85,7 +82,6 @@ class MainMenu {
     countQuantity(){
       cy.get(countCart).contains('1');
       cy.log('Return total cart 1');
-
     }
 
     navigateMain(){
@@ -102,10 +98,8 @@ class MainMenu {
       cy.get('#login-button').should('exist');
       }
     
-
     submitForm(){
       cy.get('#login-button').click();
-
     }
 
     validateLogin(){
